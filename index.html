@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,44 @@
             display: block;
             margin: 0 auto 20px;
             border: 4px solid #e9ecef;
+        }
+
+        /* Navigation styles */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 15px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        .nav-link.active {
+            color: #2c3e50;
+            background-color: #e9ecef;
+        }
+
+        /* Page content containers */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
         }
 
         .social-icons {
@@ -135,6 +174,66 @@
             color: #2c3e50;
         }
 
+        /* Project card styles */
+        .project-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .main {
@@ -196,6 +295,19 @@
             li {
                 font-size: 15px;
             }
+
+            .project-card {
+                padding: 15px;
+            }
+
+            .project-title {
+                font-size: 16px;
+            }
+
+            .project-links {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         /* Extra small mobile devices */
@@ -249,6 +361,10 @@
             .jobtext strong {
                 font-size: 13px;
             }
+
+            .project-card {
+                padding: 12px;
+            }
         }
 
         /* Improve touch targets for mobile */
@@ -265,6 +381,12 @@
     <img class="headshot" src="harrywruck.png" alt="Harry Wruck">
     
     <!-- Social Media Icons -->
+    <!-- Navigation -->
+    <nav class="navigation">
+        <a href="#" class="nav-link active" onclick="showPage('home')">About</a>
+        <a href="#" class="nav-link" onclick="showPage('projects')">Projects & Work</a>
+    </nav>
+
     <div class="social-icons">
         <a href="https://www.linkedin.com/in/hwruck/" class="social-link" target="_blank" rel="noopener noreferrer">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -286,25 +408,272 @@
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
         </a>
+        <!-- Instagram Icon -->
+        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+        <!-- VSCO Icon -->
+        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.685 16.256c-.442 1.047-1.302 1.906-2.35 2.348-.885.374-1.905.537-2.843.537-.938 0-1.958-.163-2.843-.537-1.047-.442-1.907-1.301-2.349-2.348C7.926 15.37 7.763 14.35 7.763 13.412c0-.938.163-1.958.537-2.843.442-1.047 1.302-1.907 2.349-2.349.885-.374 1.905-.537 2.843-.537.938 0 1.958.163 2.843.537 1.048.442 1.908 1.302 2.35 2.349.374.885.537 1.905.537 2.843 0 .938-.163 1.958-.537 2.844zm-3.221-2.844c0 1.884-1.533 3.417-3.417 3.417s-3.417-1.533-3.417-3.417 1.533-3.417 3.417-3.417 3.417 1.533 3.417 3.417z"/>
+            </svg>
+        </a>
+        <!-- Strava Icon -->
+        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.172"/>
+            </svg>
+        </a>
     </div>
-    <p>Hi, I'm Harry Wruck.</p>
-    <p>Most people call me Wrucky though.</p>
-    <p>I started out my life playing football at a high level. I think that taught me a lot about the importance of hard work, and how the people who succeed are the ones who refuse to quit.</p>
-    <p>Broadly speaking, I am interested in businesses, investing and learning more about the world.</p>
-    <p>I generally try to work hard, be honest, and be a good person.</p>
-    <p>I studied finance and data science at USYD. I'm a commercial guy. Previously, I spent time working in investment banking, venture investing, and building early stage businesses.</p>
-    <p>Currently, I am learning to code, and building <a class="a" href="https://www.bravagoods.co/">Brava Goods</a> - the best place to find healthy household products on the internet.</p>
-    <p>Next year, I will start work at McKinsey.</p>
-    <p>If you want to see how I think, I write sometimes on substack. A few articles you might find interesting are:</p>
-    <ul>
-        <li><a class="a" href="https://capitalists.substack.com/p/building-a-compounding-machine">Building a Compounding Machine (2024)</a></li>
-        <li><a class="a" href="https://capitalists.substack.com/p/venture-buyouts">Venture Buyouts (2024)</a></li>
-        <li><a class="a" href="https://capitalists.substack.com/p/the-economics-of-luxury">The Economics of Luxury (2024)</a></li>
-    </ul>
-    <p>I like to run marathons and ultramarathons because they make me feel alive. My heroes are people like Shaan Puri, Jordi Hays, and John Fio. People who run companies, have fun, and makes a positive impact on the world.</p>
-    <p>Sometimes, I host dinners or events for other people with big dreams.</p>
-    <p>I'm always looking to meet other interesting, ambitious people, so if this resonate with you, feel free to reach out on <a class="a" href="https://linkedin.com/in/hwruck">LinkedIn</a>, <a class="a" href="https://x.com/wruck_harry">Twitter</a>, or to email me at harrywruck22 at gmail dot com.</p>
     
+    <!-- Home Page Content -->
+    <div id="home" class="page-content active">
+        <p>Hi, I'm Harry Wruck.</p>
+        <p>Most people call me Wrucky though.</p>
+        <p>I started out my life playing football at a high level. I think that taught me a lot about the importance of hard work, and how the people who succeed are the ones who refuse to quit.</p>
+        <p>Broadly speaking, I am interested in businesses, investing and learning more about the world.</p>
+        <p>I generally try to work hard, be honest, and be a good person.</p>
+        <p>I studied finance and data science at USYD. I'm a commercial guy. Previously, I spent time working in investment banking, venture investing, and building early stage businesses.</p>
+        <p>Currently, I am learning to code, and building <a class="a" href="https://www.bravagoods.co/">Brava Goods</a> - the best place to find healthy household products on the internet.</p>
+        <p>Next year, I will start work at McKinsey.</p>
+        <p>If you want to see how I think, I write sometimes on substack. A few articles you might find interesting are:</p>
+        <ul>
+            <li><a class="a" href="https://capitalists.substack.com/p/building-a-compounding-machine">Building a Compounding Machine (2024)</a></li>
+            <li><a class="a" href="https://capitalists.substack.com/p/venture-buyouts">Venture Buyouts (2024)</a></li>
+            <li><a class="a" href="https://capitalists.substack.com/p/the-economics-of-luxury">The Economics of Luxury (2024)</a></li>
+        </ul>
+        <p>I like to run marathons and ultramarathons because they make me feel alive. My heroes are people like Shaan Puri, Jordi Hays, and John Fio. People who run companies, have fun, and makes a positive impact on the world.</p>
+        <p>Sometimes, I host dinners or events for other people with big dreams.</p>
+        <p>I'm always looking to meet other interesting, ambitious people, so if this resonate with you, feel free to reach out on <a class="a" href="https://linkedin.com/in/hwruck">LinkedIn</a>, <a class="a" href="https://x.com/wruck_harry">Twitter</a>, or to email me at harrywruck22 at gmail dot com.</p>
+    </div>
+
+    <!-- Projects & Work Page Content -->
+    <div id="projects" class="page-content">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <div class="project-title">Brava Goods</div>
+            <div class="project-description">
+                The best place to find healthy household products on the internet. Building a curated marketplace for health-conscious consumers.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">E-commerce</span>
+                <span class="tech-tag">Health & Wellness</span>
+                <span class="tech-tag">Marketplace</span>
+            </div>
+            <div class="project-links">
+                <a href="https://www.bravagoods.co/" class="project-link" target="_blank">Visit Site</a>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-title">Capitalists Newsletter</div>
+            <div class="project-description">
+                A Substack publication exploring business, investing, and entrepreneurship. Writing about building companies and understanding markets.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">Writing</span>
+                <span class="tech-tag">Business Analysis</span>
+                <span class="tech-tag">Investing</span>
+            </div>
+            <div class="project-links">
+                <a href="https://capitalists.substack.com/" class="project-link" target="_blank">Read Newsletter</a>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-title">Personal Website</div>
+            <div class="project-description">
+                This website! Built as part of my journey learning to code. A simple, clean portfolio showcasing my background and projects.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/wruckyduck" class="project-link" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <h2>Work</h2>
+        <div class="icons">
+            <div class="jobicon">
+                <img class="jobs" src="mckinsey.png" alt="McKinsey">
+                <p class="jobtext"><strong>McKinsey</strong></p>
+                <p class="jobtext">Incoming Analyst</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="usyd.png" alt="USYD">
+                <p class="jobtext"><strong>USYD</strong></p>
+                <p class="jobtext">Data Science Student</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="ggv.jpg" alt="Granite Asia">
+                <p class="jobtext"><strong>Granite Asia</strong></p>
+                <p class="jobtext">Venture Capital</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="barrenjoey.jpg" alt="Barrenjoey">
+                <p class="jobtext"><strong>Barrenjoey</strong></p>
+                <p class="jobtext">Investment Banking</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>://x.com/wruck_harry">Twitter</a>, or to email me at harrywruck22 at gmail dot com.</p>
+    </div>
+
+    <!-- Projects & Work Page Content -->
+    <div id="projects" class="page-content">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <div class="project-title">Brava Goods</div>
+            <div class="project-description">
+                The best place to find healthy household products on the internet. Building a curated marketplace for health-conscious consumers.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">E-commerce</span>
+                <span class="tech-tag">Health & Wellness</span>
+                <span class="tech-tag">Marketplace</span>
+            </div>
+            <div class="project-links">
+                <a href="https://www.bravagoods.co/" class="project-link" target="_blank">Visit Site</a>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-title">Capitalists Newsletter</div>
+            <div class="project-description">
+                A Substack publication exploring business, investing, and entrepreneurship. Writing about building companies and understanding markets.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">Writing</span>
+                <span class="tech-tag">Business Analysis</span>
+                <span class="tech-tag">Investing</span>
+            </div>
+            <div class="project-links">
+                <a href="https://capitalists.substack.com/" class="project-link" target="_blank">Read Newsletter</a>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-title">Personal Website</div>
+            <div class="project-description">
+                This website! Built as part of my journey learning to code. A simple, clean portfolio showcasing my background and projects.
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/wruckyduck" class="project-link" target="_blank">View Code</a>
+            </div>
+        </div>
+
+        <h2>Work</h2>
+        <div class="icons">
+            <div class="jobicon">
+                <img class="jobs" src="mckinsey.png" alt="McKinsey">
+                <p class="jobtext"><strong>McKinsey</strong></p>
+                <p class="jobtext">Incoming Analyst</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="usyd.png" alt="USYD">
+                <p class="jobtext"><strong>USYD</strong></p>
+                <p class="jobtext">Data Science Student</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="ggv.jpg" alt="Granite Asia">
+                <p class="jobtext"><strong>Granite Asia</strong></p>
+                <p class="jobtext">Venture Capital</p>
+            </div>
+            <div class="jobicon">
+                <img class="jobs" src="barrenjoey.jpg" alt="Barrenjoey">
+                <p class="jobtext"><strong>Barrenjoey</strong></p>
+                <p class="jobtext">Investment Banking</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>://x.com/wruck_harry">Twitter</a>, or to email me at harrywruck22 at gmail dot com.</p>
+    
+    <h2>Projects</h2>
+    <div class="project-card">
+        <div class="project-title">Brava Goods</div>
+        <div class="project-description">
+            The best place to find healthy household products on the internet. Building a curated marketplace for health-conscious consumers.
+        </div>
+        <div class="project-tech">
+            <span class="tech-tag">E-commerce</span>
+            <span class="tech-tag">Health & Wellness</span>
+            <span class="tech-tag">Marketplace</span>
+        </div>
+        <div class="project-links">
+            <a href="https://www.bravagoods.co/" class="project-link" target="_blank">Visit Site</a>
+        </div>
+    </div>
+    
+    <div class="project-card">
+        <div class="project-title">Capitalists Newsletter</div>
+        <div class="project-description">
+            A Substack publication exploring business, investing, and entrepreneurship. Writing about building companies and understanding markets.
+        </div>
+        <div class="project-tech">
+            <span class="tech-tag">Writing</span>
+            <span class="tech-tag">Business Analysis</span>
+            <span class="tech-tag">Investing</span>
+        </div>
+        <div class="project-links">
+            <a href="https://capitalists.substack.com/" class="project-link" target="_blank">Read Newsletter</a>
+        </div>
+    </div>
+    
+    <div class="project-card">
+        <div class="project-title">Personal Website</div>
+        <div class="project-description">
+            This website! Built as part of my journey learning to code. A simple, clean portfolio showcasing my background and projects.
+        </div>
+        <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Responsive Design</span>
+        </div>
+        <div class="project-links">
+            <a href="https://github.com/wruckyduck" class="project-link" target="_blank">View Code</a>
+        </div>
+    </div>
+
     <h2>Work</h2>
     <div class="icons">
         <div class="jobicon">
