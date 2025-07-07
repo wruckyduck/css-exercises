@@ -212,23 +212,14 @@
             display: flex;
             align-items: center;
             padding: 16px 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px; /* Changed from 1px to 12px for more space */
             background-color: #fafafa;
             border: 1px solid #e9ecef;
+            border-radius: 8px; /* Added border-radius to all items since they're now separated */
             transition: all 0.2s ease;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
-        }
-
-        .work-item:first-child {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .work-item:last-child {
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
         }
 
         .work-item:hover {
@@ -381,6 +372,7 @@
             
             .work-item {
                 padding: 12px 16px;
+                margin-bottom: 10px; /* Adjusted for mobile */
             }
             
             .work-icon {
@@ -422,6 +414,10 @@
 
             .project-card {
                 padding: 12px;
+            }
+
+            .work-item {
+                margin-bottom: 8px; /* Smaller spacing on very small screens */
             }
         }
 
@@ -543,6 +539,22 @@
                 <div class="work-year">2025</div>
             </div>
             <div class="work-item">
+                <img class="work-icon" src="barrenjoey.jpg" alt="Barrenjoey">
+                <div class="work-info">
+                    <div class="work-company">Barrenjoey</div>
+                    <div class="work-role">Investment Banking</div>
+                </div>
+                <div class="work-year">2022</div>
+            </div>
+            <div class="work-item">
+                <img class="work-icon" src="greenstone.png" alt="Greenstone Partners">
+                <div class="work-info">
+                    <div class="work-company">Greenstone Partners</div>
+                    <div class="work-role">Investment Banking</div>
+                </div>
+                <div class="work-year">2022</div>
+            </div>
+            <div class="work-item">
                 <img class="work-icon" src="ggv.jpg" alt="Granite Asia">
                 <div class="work-info">
                     <div class="work-company">Granite Asia</div>
@@ -565,14 +577,6 @@
                     <div class="work-role">Early Team</div>
                 </div>
                 <div class="work-year">2023</div>
-            </div>
-            <div class="work-item">
-                <img class="work-icon" src="barrenjoey.jpg" alt="Barrenjoey">
-                <div class="work-info">
-                    <div class="work-company">Barrenjoey</div>
-                    <div class="work-role">Investment Banking</div>
-                </div>
-                <div class="work-year">2022</div>
             </div>
             <div class="work-item">
                 <img class="work-icon" src="usyd.png" alt="USYD">
