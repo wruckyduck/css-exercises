@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="harrywruck.png">
+    <link rel="shortcut icon" type="image/png" href="harrywruck.png">
     <title>Harry Wruck</title>
     <style>
         /* Reset and base styles */
@@ -59,12 +60,12 @@
         }
 
         .nav-link:hover {
-            color: #8B5CF6;
+            color: #8B44F0;
             background-color: #f8f9fa;
         }
 
         .nav-link.active {
-            color: #8B5CF6;
+            color: #8B44F0;
             background-color: #e9ecef;
         }
 
@@ -106,7 +107,7 @@
         }
 
         .a {
-            color: #8B5CF6;
+            color: #8B44F0;
             text-decoration: underline;
             font-weight: 500;
         }
@@ -119,7 +120,7 @@
         h2 {
             margin-top: 30px;
             margin-bottom: 20px;
-            color: #8B5CF6;
+            color: #8B44F0;
             font-size: 24px;
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 10px;
@@ -135,43 +136,137 @@
             font-size: 16px;
         }
 
-        .icons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+        /* Projects row layout */
+        .projects-row {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
 
-        .jobicon {
+        .project-item {
+            flex: 0 0 auto;
+            min-width: 140px;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background-color: #f8f9fa;
             border-radius: 8px;
             border: 1px solid #e9ecef;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .jobicon:hover {
+        .project-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-color: #8B44F0;
         }
 
-        .jobs {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .jobtext {
-            margin-bottom: 5px;
+        .project-item::after {
+            content: "↗";
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: #8B44F0;
             font-size: 14px;
+            font-weight: bold;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
         }
 
-        .jobtext strong {
+        .project-item:hover::after {
+            opacity: 1;
+        }
+
+        .project-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin: 0 auto 8px;
+            display: block;
+        }
+
+        .project-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8B44F0;
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Work vertical list layout */
+        .work-list {
+            margin-top: 20px;
+        }
+
+        .work-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            margin-bottom: 1px;
+            background-color: #fafafa;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .work-item:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .work-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .work-item:hover {
+            background-color: #f8f9fa;
+            border-color: #8B44F0;
+            transform: translateX(4px);
+        }
+
+        .work-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .work-info {
+            flex-grow: 1;
+        }
+
+        .work-company {
             font-size: 16px;
-            color: #8B5CF6;
+            font-weight: 600;
+            color: #8B44F0;
+            margin-bottom: 2px;
+        }
+
+        .work-role {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .work-year {
+            font-size: 14px;
+            color: #999;
+            margin-left: auto;
+            flex-shrink: 0;
         }
 
         /* Project card styles */
@@ -192,7 +287,7 @@
         .project-title {
             font-size: 18px;
             font-weight: 600;
-            color: #8B5CF6;
+            color: #8B44F0;
             margin-bottom: 10px;
         }
 
@@ -224,7 +319,7 @@
         }
 
         .project-link {
-            color: #8B5CF6;
+            color: #8B44F0;
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
@@ -267,28 +362,6 @@
                 margin-top: 25px;
             }
 
-            .icons {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .jobicon {
-                padding: 15px;
-            }
-
-            .jobs {
-                width: 50px;
-                height: 50px;
-            }
-
-            .jobtext {
-                font-size: 13px;
-            }
-
-            .jobtext strong {
-                font-size: 14px;
-            }
-
             ul {
                 margin-left: 15px;
             }
@@ -297,17 +370,23 @@
                 font-size: 15px;
             }
 
-            .project-card {
-                padding: 15px;
-            }
-
-            .project-title {
-                font-size: 16px;
-            }
-
-            .project-links {
-                flex-direction: column;
+            .projects-row {
                 gap: 10px;
+            }
+            
+            .project-item {
+                min-width: 120px;
+                padding: 12px;
+            }
+            
+            .work-item {
+                padding: 12px 16px;
+            }
+            
+            .work-icon {
+                width: 28px;
+                height: 28px;
+                margin-right: 12px;
             }
         }
 
@@ -339,28 +418,6 @@
 
             h2 {
                 font-size: 18px;
-            }
-
-            .icons {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .jobicon {
-                padding: 12px;
-            }
-
-            .jobs {
-                width: 45px;
-                height: 45px;
-            }
-
-            .jobtext {
-                font-size: 12px;
-            }
-
-            .jobtext strong {
-                font-size: 13px;
             }
 
             .project-card {
@@ -452,58 +509,78 @@
     <!-- Projects & Work Page Content -->
     <div id="projects" class="page-content">
         <h2>Projects</h2>
-        <div class="icons">
-            <a href="https://bravagoods.co" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                <div class="jobicon">
-                    <img class="jobs" src="bravagoods.png" alt="Brava Goods">
-                    <p class="jobtext"><strong>Brava Goods</strong></p>
-                    <p class="jobtext">E-commerce Platform</p>
-                </div>
+        <div class="projects-row">
+            <a href="https://bravagoods.co" target="_blank" rel="noopener noreferrer" class="project-item">
+                <img class="project-icon" src="bravagoods.png" alt="Brava Goods">
+                <div class="project-name">Brava Goods</div>
+                <div class="project-desc">E-commerce</div>
             </a>
-            <a href="https://capitalists.substack.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                <div class="jobicon">
-                    <img class="jobs" src="substack.png" alt="The Capitalist">
-                    <p class="jobtext"><strong>The Capitalist</strong></p>
-                    <p class="jobtext">Business & Investing</p>
-                </div>
+            <a href="https://capitalists.substack.com/" target="_blank" rel="noopener noreferrer" class="project-item">
+                <img class="project-icon" src="substack.png" alt="The Capitalist">
+                <div class="project-name">The Capitalist</div>
+                <div class="project-desc">Newsletter</div>
             </a>
-            <a href="https://luminarie.xyz" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                <div class="jobicon">
-                    <img class="jobs" src="luminaries.png" alt="Luminaries">
-                    <p class="jobtext"><strong>Luminaries</strong></p>
-                    <p class="jobtext">Dinner Series</p>
-                </div>
+            <a href="https://luminarie.xyz" target="_blank" rel="noopener noreferrer" class="project-item">
+                <img class="project-icon" src="luminaries.png" alt="Luminaries">
+                <div class="project-name">Luminaries</div>
+                <div class="project-desc">Dinner Series</div>
             </a>
-            <a href="https://www.youtube.com/@harrywruck7263" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                <div class="jobicon">
-                    <img class="jobs" src="youtube.png" alt="YouTube Podcast">
-                    <p class="jobtext"><strong>YouTube Podcast</strong></p>
-                    <p class="jobtext">Video Content</p>
-                </div>
+            <a href="https://www.youtube.com/@harrywruck7263" target="_blank" rel="noopener noreferrer" class="project-item">
+                <img class="project-icon" src="youtube.png" alt="My Podcast">
+                <div class="project-name">My Podcast</div>
+                <div class="project-desc">Youtube</div>
             </a>
         </div>
 
         <h2>Work</h2>
-        <div class="icons">
-            <div class="jobicon">
-                <img class="jobs" src="mckinsey.png" alt="McKinsey">
-                <p class="jobtext"><strong>McKinsey</strong></p>
-                <p class="jobtext">Incoming Analyst</p>
+        <div class="work-list">
+            <div class="work-item">
+                <img class="work-icon" src="mckinsey.png" alt="McKinsey">
+                <div class="work-info">
+                    <div class="work-company">McKinsey</div>
+                    <div class="work-role">Incoming Analyst</div>
+                </div>
+                <div class="work-year">2025</div>
             </div>
-            <div class="jobicon">
-                <img class="jobs" src="usyd.png" alt="USYD">
-                <p class="jobtext"><strong>USYD</strong></p>
-                <p class="jobtext">Data Science Student</p>
+            <div class="work-item">
+                <img class="work-icon" src="ggv.jpg" alt="Granite Asia">
+                <div class="work-info">
+                    <div class="work-company">Granite Asia</div>
+                    <div class="work-role">Venture Capital</div>
+                </div>
+                <div class="work-year">2023</div>
             </div>
-            <div class="jobicon">
-                <img class="jobs" src="ggv.jpg" alt="Granite Asia">
-                <p class="jobtext"><strong>Granite Asia</strong></p>
-                <p class="jobtext">Venture Capital</p>
+            <div class="work-item">
+                <img class="work-icon" src="tidalventures.png" alt="Tidal Ventures">
+                <div class="work-info">
+                    <div class="work-company">Tidal Ventures</div>
+                    <div class="work-role">Venture Capital</div>
+                </div>
+                <div class="work-year">2023</div>
             </div>
-            <div class="jobicon">
-                <img class="jobs" src="barrenjoey.jpg" alt="Barrenjoey">
-                <p class="jobtext"><strong>Barrenjoey</strong></p>
-                <p class="jobtext">Investment Banking</p>
+            <div class="work-item">
+                <img class="work-icon" src="nextchapter.png" alt="Next Chapter">
+                <div class="work-info">
+                    <div class="work-company">Next Chapter</div>
+                    <div class="work-role">Early Team</div>
+                </div>
+                <div class="work-year">2023</div>
+            </div>
+            <div class="work-item">
+                <img class="work-icon" src="barrenjoey.jpg" alt="Barrenjoey">
+                <div class="work-info">
+                    <div class="work-company">Barrenjoey</div>
+                    <div class="work-role">Investment Banking</div>
+                </div>
+                <div class="work-year">2022</div>
+            </div>
+            <div class="work-item">
+                <img class="work-icon" src="usyd.png" alt="USYD">
+                <div class="work-info">
+                    <div class="work-company">USYD</div>
+                    <div class="work-role">Data Science Student</div>
+                </div>
+                <div class="work-year">2021-2025</div>
             </div>
         </div>
     </div>
