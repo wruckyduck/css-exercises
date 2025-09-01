@@ -37,35 +37,12 @@
         .profile-image {
             width: 320px;
             height: 420px;
-            background: rgba(255,255,255,0.05);
+            background-image: url('harrywruck.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border-radius: 8px;
-            position: relative;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            backdrop-filter: blur(10px);
-        }
-        
-        .profile-image::after {
-            content: 'HW';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255,255,255,0.8);
-            font-size: 32px;
-            font-weight: 600;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .right-section {
@@ -212,6 +189,11 @@
             .name {
                 font-size: 32px;
             }
+            
+            .profile-image {
+                width: 280px;
+                height: 360px;
+            }
         }
         
         .fade-in {
@@ -288,4 +270,3 @@
     </div>
 </body>
 </html>
-
