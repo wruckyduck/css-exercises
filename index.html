@@ -1,263 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Wruck</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-        
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        display: flex;
+        width: 100%;
+        align-items: stretch; /* ensures left and right sides match height */
+    }
+    
+    .left-section {
+        width: 50%;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        background: #f8f9fa;
+        overflow: hidden;
+    }
+    
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        background-image: url('harrywruck.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .right-section {
+        width: 50%;
+        padding: 80px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+        background: #f8f9fa;
+    }
+    
+    .content-wrapper {
+        max-width: 520px;
+        width: 100%;
+    }
+    
+    .name {
+        font-size: 42px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+    }
+    
+    .birth-year {
+        font-size: 16px;
+        color: #777;
+        margin-bottom: 40px;
+    }
+    
+    .bio-section {
+        margin-bottom: 40px;
+    }
+    
+    .bio-text {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        color: #444;
+    }
+    
+    .highlight {
+        font-weight: 600;
+        color: #111;
+    }
+    
+    .writing-list {
+        list-style: none;
+        margin-bottom: 32px;
+    }
+    
+    .writing-list li {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 6px;
+        font-style: italic;
+    }
+    
+    .writing-list a {
+        color: #555;
+        text-decoration: none;
+    }
+    
+    .writing-list a:hover {
+        color: #111;
+        transition: color 0.2s ease;
+    }
+    
+    .praxis-section {
+        margin: 32px 0;
+        font-size: 15px;
+        color: #444;
+    }
+    
+    .contact-section {
+        margin-top: 40px;
+    }
+    
+    .email {
+        font-size: 15px;
+        color: #111;
+        text-decoration: none;
+        margin-bottom: 12px;
+        display: block;
+    }
+    
+    .email:hover {
+        text-decoration: underline;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+    
+    .social-links a {
+        color: #555;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    
+    .social-links a:hover {
+        color: #111;
+        transition: color 0.2s ease;
+    }
+    
+    .location {
+        font-size: 13px;
+        color: #777;
+        letter-spacing: 0.5px;
+    }
+    
+    @media (max-width: 768px) {
         .container {
-            display: flex;
-            height: 100vh;
+            flex-direction: column;
+        }
+        
+        .left-section, .right-section {
             width: 100%;
         }
         
         .left-section {
-            width: 50%;
-            height: 100vh;
-            background: #f8f9fa; /* changed to match right side */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .profile-image {
-            width: 420px;
-            height: 520px;
-            background-image: url('harrywruck.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            min-height: 400px;
         }
         
         .right-section {
-            width: 50%;
-            height: 100vh;
-            background: #f8f9fa;
-            padding: 80px 60px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-        
-        .content-wrapper {
-            max-width: 520px; /* expanded text width */
-            width: 100%;
+            padding: 40px 30px;
         }
         
         .name {
-            font-size: 42px;
-            font-weight: 700;
-            color: #222; /* updated font color */
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
+            font-size: 32px;
         }
-        
-        .birth-year {
-            font-size: 16px;
-            color: #777;
-            margin-bottom: 40px;
-        }
-        
-        .bio-section {
-            margin-bottom: 40px;
-        }
-        
-        .bio-text {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            color: #444; /* updated font color */
-        }
-        
-        .highlight {
-            font-weight: 600;
-            color: #111;
-        }
-        
-        .writing-list {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-        
-        .writing-list li {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 6px;
-            font-style: italic;
-        }
-        
-        .writing-list a {
-            color: #555;
-            text-decoration: none;
-        }
-        
-        .writing-list a:hover {
-            color: #111;
-            transition: color 0.2s ease;
-        }
-        
-        .praxis-section {
-            margin: 32px 0;
-            font-size: 15px;
-            color: #444;
-        }
-        
-        .contact-section {
-            margin-top: 40px;
-        }
-        
-        .email {
-            font-size: 15px;
-            color: #111;
-            text-decoration: none;
-            margin-bottom: 12px;
-            display: block;
-        }
-        
-        .email:hover {
-            text-decoration: underline;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        
-        .social-links a {
-            color: #555;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .social-links a:hover {
-            color: #111;
-            transition: color 0.2s ease;
-        }
-        
-        .location {
-            font-size: 13px;
-            color: #777;
-            letter-spacing: 0.5px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                height: auto;
-            }
-            
-            .left-section, .right-section {
-                width: 100%;
-                height: auto;
-            }
-            
-            .left-section {
-                height: 50vh;
-                min-height: 400px;
-            }
-            
-            .right-section {
-                padding: 40px 30px;
-            }
-            
-            .name {
-                font-size: 32px;
-            }
-            
-            .profile-image {
-                width: 280px;
-                height: 360px;
-            }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in:nth-child(3) { animation-delay: 0.3s; }
-        .fade-in:nth-child(4) { animation-delay: 0.4s; }
-        .fade-in:nth-child(5) { animation-delay: 0.5s; }
-        .fade-in:nth-child(6) { animation-delay: 0.6s; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-section">
-            <div class="profile-image"></div>
-        </div>
-        
-        <div class="right-section">
-            <div class="content-wrapper">
-                <h1 class="name fade-in">HARRY WRUCK</h1>
-                <div class="birth-year fade-in">1990s-????</div>
-                
-                <div class="bio-section fade-in">
-                    <p class="bio-text">I'm currently exploring <span class="highlight">private equity, AI x services, energy and education, and learning to code</span></p>
-                    
-                    <p class="bio-text">I studied finance and data science at USYD, where I ranked in the top 1% of students whilst working 6+ jobs.</p>
-                    
-                    <p class="bio-text">Previously, I spent time working in <span class="highlight">M&A, technology investing, and startups</span>.</p>
-                </div>
-                
-                <div class="fade-in">
-                    <div class="section-title">Some of my writing & thoughts</div>
-                    <ul class="writing-list">
-                        <li><a href="#" onclick="return false;">Building a Compounding Machine (2024)</a></li>
-                        <li><a href="#" onclick="return false;">Venture Buyouts (2024)</a></li>
-                        <li><a href="#" onclick="return false;">The Economics of Luxury (2024)</a></li>
-                        <li><a href="#" onclick="return false;">Thoughts on Business Development (2024)</a></li>
-                        <li><a href="#" onclick="return false;">Investment Philosophy & Process (2024)</a></li>
-                    </ul>
-                </div>
-                
-                <div class="praxis-section fade-in">
-                    Somewhere along the way, various mentors gave me insights that shaped my approach to business and investing.
-                </div>
-                
-                <div class="contact-section fade-in">
-                    <a href="mailto:harry@wruck.com" class="email">harry@wruck.com</a>
-                    
-                    <div class="social-links">
-                        <a href="#" onclick="return false;">Substack</a>
-                        <a href="#" onclick="return false;">LinkedIn</a>
-                        <a href="#" onclick="return false;">X</a>
-                    </div>
-                    
-                    <div class="location">SYD / CPH / NYC? </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
+    }
+</style>
