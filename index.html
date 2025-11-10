@@ -21,11 +21,11 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 80px 60px;
+        padding: 80px 20%;
     }
 
     .content-wrapper {
-        max-width: 680px;
+        max-width: 700px;
         width: 100%;
         text-align: left;
         animation: fadeIn 0.6s ease forwards;
@@ -117,6 +117,12 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
+    @media (max-width: 1024px) {
+        body {
+            padding: 60px 12%;
+        }
+    }
+
     @media (max-width: 768px) {
         body {
             padding: 40px 24px;
@@ -138,23 +144,10 @@
         <div class="birth-year">2003-????</div>
 
         <p class="bio-text">I'm currently learning to code and thinking about the future.</p>
-        <p class="bio-text">Some areas I'm exploring are private equity, AI x services, energy and education.</p>
-        <p class="bio-text">I studied finance and data science at USYD, where I ranked in the top 1% of students.</p>
         <p class="bio-text">Previously, I spent time working in M&A, technology investing, and startups.</p>
-        <p class="bio-text">My career philosophy is to monetise my insights about the world.</p>
+        <p class="bio-text">I studied data science and finance at The University of Sydney</p>
         <p class="bio-text">I <a href="https://luminarie.xyz" class="highlight" target="_blank">host dinners</a> for young, ambitious people with big dreams.</p>
         <p class="bio-text">I also <a href="https://capitalists.substack.com/" class="highlight" target="_blank">write on Substack</a> about investing, technology and the future.</p>
-        <p class="bio-text">I build things in the digital world at <a href="https://www.radixstudios.xyz" class="highlight" target="_blank">Radix Studios</a>.</p>
-        <p class="bio-text">If I'm not working, I enjoy running, lifting weights, finding new cafes, and jazz house music.</p>
-
-        <div class="writing-wrapper">
-            <span class="highlight" style="margin-bottom: 20px; display: inline-block;">My writing & miscellaneous thoughts:</span>
-            <ul class="writing-list">
-                <li><a href="#" onclick="return false;">Building a Compounding Machine (2024)</a></li>
-                <li><a href="#" onclick="return false;">Venture Buyouts (2024)</a></li>
-                <li><a href="#" onclick="return false;">The Economics of Luxury (2024)</a></li>
-            </ul>
-        </div>
 
         <div class="contact-section">
             <a href="mailto:harry@wruck.com" class="email">wruckharry@gmail.com</a>
@@ -169,6 +162,7 @@
     </div>
 </body>
 </html>
+
 
 
 
