@@ -16,19 +16,28 @@
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         min-height: 100vh;
-        background: #f8f9fa;
-        color: #222;
+        /* Set Background.jpg as a fixed, full-bleed cover image */
+        background: url('Background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
-        padding: 80px 20%;
+        align-items: center;
+        padding: 80px 10%;
     }
 
     .content-wrapper {
-        max-width: 700px;
+        max-width: 600px;
         width: 100%;
         text-align: left;
         animation: fadeIn 0.6s ease forwards;
+        /* Frosted glass effect for text readability over the image */
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .name {
@@ -36,49 +45,37 @@
         font-weight: 700;
         margin-bottom: 8px;
         letter-spacing: -0.02em;
+        color: #fff;
     }
 
     .birth-year {
         font-size: 16px;
-        color: #777;
-        margin-bottom: 40px;
+        color: #ccc;
+        margin-bottom: 24px;
     }
 
     .bio-text {
         font-size: 17px;
         line-height: 1.8;
         margin-bottom: 16px;
-        color: #444;
+        color: #eee;
     }
 
+    /* Clean accent color for links over dark/glass background */
     .highlight {
-        color: blue;
-    }
-
-    .writing-wrapper {
-        margin: 50px 0;
-    }
-
-    .writing-list {
-        list-style: none;
-        margin-bottom: 32px;
-        padding: 0;
-    }
-
-    .writing-list li {
-        font-size: 15px;
-        color: #555;
-        margin-bottom: 6px;
-        font-style: italic;
+        color: #64b5f6;
+        text-decoration: underline;
     }
 
     .contact-section {
         margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: 24px;
     }
 
     .email {
         font-size: 15px;
-        color: #111;
+        color: #fff;
         text-decoration: none;
         margin-bottom: 12px;
         display: block;
@@ -93,27 +90,27 @@
         gap: 16px;
         margin-bottom: 24px;
         flex-wrap: wrap;
-        color: blue;
+    }
+
+    .social-links a {
+        color: #64b5f6;
     }
 
     .location {
         font-size: 13px;
-        color: #777;
+        color: #aaa;
         letter-spacing: 0.5px;
     }
-
-
-
    
-   a {
-    color: inherit;
-    text-decoration: underline;
-}
+    a {
+        color: inherit;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+    }
 
-a:hover {
-    color: blue;
-    text-decoration: underline;
-}
+    a:hover {
+        color: #90caf9 !important;
+    }
 
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(15px); }
@@ -122,13 +119,18 @@ a:hover {
 
     @media (max-width: 1024px) {
         body {
-            padding: 60px 12%;
+            padding: 60px 8%;
         }
     }
 
     @media (max-width: 768px) {
         body {
-            padding: 40px 24px;
+            padding: 24px;
+            align-items: flex-start;
+        }
+
+        .content-wrapper {
+            padding: 30px 20px;
         }
 
         .name {
@@ -153,7 +155,7 @@ a:hover {
         <p class="bio-text">I also <a href="https://capitalists.substack.com/" class="highlight" target="_blank">write on Substack</a> about investing, technology and the future.</p>
 
         <div class="contact-section">
-            <a href="mailto:harry@wruck.com" class="email">wruckharry@gmail.com</a>
+            <a href="mailto:wruckharry@gmail.com" class="email">wruckharry@gmail.com</a>
             <div class="social-links">
                 <a href="https://capitalists.substack.com/" target="_blank">Substack</a>
                 <a href="https://www.linkedin.com/in/hwruck/" target="_blank">LinkedIn</a>
