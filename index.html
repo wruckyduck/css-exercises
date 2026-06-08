@@ -16,22 +16,22 @@
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         min-height: 100vh;
-        /* Set Background.jpg as a fixed, full-bleed cover image */
         background: url('Background.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #fff;
         display: flex;
-        justify-content: flex-start;
+        /* Changed from flex-start to center to vertically and horizontally center the box */
+        justify-content: center;
         align-items: center;
-        padding: 80px 10%;
+        padding: 40px 24px;
     }
 
     .content-wrapper {
         max-width: 600px;
         width: 100%;
-        text-align: left;
+        /* Changed text-align to center all the text elements */
+        text-align: center;
         animation: fadeIn 0.6s ease forwards;
-        /* Frosted glass effect for text readability over the image */
         background: rgba(0, 0, 0, 0.45);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -61,7 +61,6 @@
         color: #eee;
     }
 
-    /* Clean accent color for links over dark/glass background */
     .highlight {
         color: #64b5f6;
         text-decoration: underline;
@@ -77,7 +76,7 @@
         font-size: 15px;
         color: #fff;
         text-decoration: none;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         display: block;
     }
 
@@ -87,6 +86,8 @@
 
     .social-links {
         display: flex;
+        /* Centers the social links horizontally */
+        justify-content: center;
         gap: 16px;
         margin-bottom: 24px;
         flex-wrap: wrap;
@@ -117,16 +118,10 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 1024px) {
-        body {
-            padding: 60px 8%;
-        }
-    }
-
     @media (max-width: 768px) {
+        /* Kept it centered on mobile devices for visual consistency */
         body {
-            padding: 24px;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .content-wrapper {
