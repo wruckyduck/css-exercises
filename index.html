@@ -1,167 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harry Wruck</title>
-<style>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harry Wruck</title>
+  <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        min-height: 100vh;
-        background: url('Background.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #fff;
-        display: flex;
-        /* Changed from flex-start to center to vertically and horizontally center the box */
-        justify-content: center;
-        align-items: center;
-        padding: 40px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F8F5F0;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 72px 24px 80px;
     }
 
     .content-wrapper {
-        max-width: 600px;
-        width: 100%;
-        /* Changed text-align to center all the text elements */
-        text-align: center;
-        animation: fadeIn 0.6s ease forwards;
-        background: rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 40px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 560px;
+      margin: 0 auto;
     }
 
+    /* ── Header ── */
     .name {
-        font-size: 46px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        letter-spacing: -0.02em;
-        color: #fff;
-    }
-
-    .birth-year {
-        font-size: 16px;
-        color: #ccc;
-        margin-bottom: 24px;
-    }
-
-    .bio-text {
-        font-size: 17px;
-        line-height: 1.8;
-        margin-bottom: 16px;
-        color: #eee;
-    }
-
-    .highlight {
-        color: #64b5f6;
-        text-decoration: underline;
-    }
-
-    .contact-section {
-        margin-top: 40px;
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
-        padding-top: 24px;
-    }
-
-    .email {
-        font-size: 15px;
-        color: #fff;
-        text-decoration: none;
-        margin-bottom: 16px;
-        display: block;
-    }
-
-    .email:hover {
-        text-decoration: underline;
-    }
-
-    .social-links {
-        display: flex;
-        /* Centers the social links horizontally */
-        justify-content: center;
-        gap: 16px;
-        margin-bottom: 24px;
-        flex-wrap: wrap;
-    }
-
-    .social-links a {
-        color: #64b5f6;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 38px;
+      font-weight: normal;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      color: #1a1a1a;
     }
 
     .location {
-        font-size: 13px;
-        color: #aaa;
-        letter-spacing: 0.5px;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
     }
-   
+
+    /* ── Bio ── */
+    .bio-text {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 40px 0;
+    }
+
+    /* ── Contact ── */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
     a {
-        color: inherit;
-        text-decoration: underline;
-        transition: color 0.2s ease;
+      color: #2563EB;
+      text-decoration: none;
+      transition: color 0.15s ease;
     }
 
     a:hover {
-        color: #90caf9 !important;
+      color: #1d4ed8;
+      text-decoration: underline;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(15px); }
-        to { opacity: 1; transform: translateY(0); }
+    .email-link {
+      font-size: 15px;
     }
 
-    @media (max-width: 768px) {
-        /* Kept it centered on mobile devices for visual consistency */
-        body {
-            align-items: center;
-        }
-
-        .content-wrapper {
-            padding: 30px 20px;
-        }
-
-        .name {
-            font-size: 34px;
-        }
-
-        .bio-text {
-            font-size: 16px;
-        }
+    .social-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-</style>
+
+    .social-links a {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .social-links a:hover {
+      color: #2563EB;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 48px 20px 60px;
+      }
+
+      .name {
+        font-size: 30px;
+      }
+
+      .post-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="content-wrapper">
-        <h1 class="name">HARRY WRUCK</h1>
-        <div class="birth-year"></div>
+  <div class="content-wrapper">
 
-        <p class="bio-text">I'm currently a strategy consultant at McKinsey & Co.</p>
-        <p class="bio-text">Previously, I worked for Australia's top investment bank, ranked in the top 1% of Data Science students at the University of Sydney</p>
-        <p class="bio-text">I <a href="https://luminarie.xyz" class="highlight" target="_blank">host dinners</a> for young, ambitious people with big dreams.</p>
-        <p class="bio-text">I also <a href="https://capitalists.substack.com/" class="highlight" target="_blank">write on Substack</a> about investing, technology and the future.</p>
+    <!-- Header -->
+    <h1 class="name">Harry Wruck</h1>
+    <div class="location">SYD / CPH</div>
 
-        <div class="contact-section">
-            <a href="mailto:wruckharry@gmail.com" class="email">wruckharry@gmail.com</a>
-            <div class="social-links">
-                <a href="https://capitalists.substack.com/" target="_blank">Substack</a>
-                <a href="https://www.linkedin.com/in/hwruck/" target="_blank">LinkedIn</a>
-                <a href="https://x.com/wruck_harry" target="_blank">X</a>
-                <a href="https://vsco.co/harrywruck/gallery" target="_blank">Photos</a>
-            </div>
-            <div class="location">SYD / CPH</div>
-        </div>
+    <!-- Bio -->
+    <p class="bio-text">I'm currently a strategy consultant at McKinsey & Co.</p>
+    <p class="bio-text">Previously, I spent time working in M&A, technology investing, and startups.</p>
+    <p class="bio-text">I studied data science and finance at The University of Sydney.</p>
+    <p class="bio-text">I <a href="https://luminarie.xyz" target="_blank">host dinners</a> for young, ambitious people with big dreams.</p>
+    <p class="bio-text">I also <a href="https://capitalists.substack.com/" target="_blank">write on Substack</a> about investing, technology and the future.</p>
+
+    <hr class="divider">
+
+    <!-- Contact -->
+    <div class="contact-row">
+      <a href="mailto:wruckharry@gmail.com" class="email-link">wruckharry@gmail.com</a>
+      <div class="social-links">
+        <a href="https://capitalists.substack.com/" target="_blank">Substack</a>
+        <a href="https://www.linkedin.com/in/hwruck/" target="_blank">LinkedIn</a>
+        <a href="https://x.com/wruck_harry" target="_blank">X</a>
+        <a href="https://vsco.co/harrywruck/gallery" target="_blank">Photos</a>
+      </div>
     </div>
+
+  </div>
 </body>
 </html>
-
-
-
 
